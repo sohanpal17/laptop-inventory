@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-paper: #f2f3f7;
+  --color-card: #ffffff;
+  --color-ink: #0b1b33;
+  --color-navy: #10254a;
+  --color-navylight: #1e3e75;
+  --color-navydeep: #08172e;
+  --color-muted: #6b7590;
+  --color-rule: #d6dae4;
+  --color-signal: #d92d20;
+
+  --color-chipviolet: #e3e0fa;
+  --color-chiprose: #fbe0de;
+  --color-chipamber: #fbebc8;
+  --color-chipmint: #ddf0e3;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  ::selection {
+    background: var(--color-navy);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-navy);
+    outline-offset: 2px;
+  }
+
+  input,
+  select,
+  button,
+  textarea {
+    font-family: inherit;
+  }
+}
+
+@utility tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* faint blueprint grid, the spec-sheet paper */
+@utility blueprint {
+  background-image:
+    linear-gradient(to right, rgba(16, 37, 74, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 37, 74, 0.055) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility hairline {
+  border-color: var(--color-rule);
+}
+
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #c3c9d6;
+  border-radius: 999px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
